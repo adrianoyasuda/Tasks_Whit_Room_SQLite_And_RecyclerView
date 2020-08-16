@@ -157,8 +157,13 @@ RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
         val shareIntent = Intent(Intent.ACTION_SEND)
 
-        shareIntent.type = "text/plain"
-        shareIntent.putExtra(Intent.EXTRA_TEXT, "${R.string.weee} ${task.title}")
-        card.rootView.context.startActivity(Intent.createChooser(shareIntent,"Compartilhar"))
+        with(shareIntent) {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_SUBJECT, "Compartilhar")
+            putExtra(Intent.EXTRA_TEXT, "${card.context.getString(R.string.weee)} ${task.title}".toString())
+
+        }
+        shareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        card.rootView.context.startActivity(shareIntent)
     }
 }

@@ -13,8 +13,8 @@ import yasuda.ifpr.edu.com.br.task.adapters.TaskAdapter
 import yasuda.ifpr.edu.com.br.task.adapters.TaskAdapterListener
 
 class MainActivity : AppCompatActivity(), TaskAdapterListener {
-    private lateinit var taskDao: TaskDao
-    private lateinit var adapter: TaskAdapter
+    lateinit var taskDao: TaskDao
+    lateinit var adapter: TaskAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
